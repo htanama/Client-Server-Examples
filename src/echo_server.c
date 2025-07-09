@@ -26,8 +26,9 @@ int main (int argc, char **argv)
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(SERV_PORT);
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
-    
-    bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
+
+    // _bind_result variable is created to surpress clangd warning   
+    int _bind_result = bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
 
     listen(listenfd, LISTENQ);
 
