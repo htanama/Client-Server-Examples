@@ -1,0 +1,14 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-o",
+      "client",
+      "echo_client.c"
+    ],
+    "directory": "/home/harry/Linux-Dev-Projects/example-client-server",
+    "file": "/home/harry/Linux-Dev-Projects/example-client-server/echo_client.c",
+    "output": "/home/harry/Linux-Dev-Projects/example-client-server/client"
+  }
+]
