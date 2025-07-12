@@ -17,8 +17,8 @@ main(int argc, char **argv)
     int sockfd;
     struct sockaddr_in servaddr;
     char sendline[MAXLINE], recvline[MAXLINE];
-    char  isConnected = FALSE;
-
+    char isConnected = FALSE;
+        
     //Creation of the socket
     memset(&servaddr, 0, sizeof(servaddr));
     servaddr.sin_family = AF_INET;
@@ -48,6 +48,8 @@ main(int argc, char **argv)
 
 
     //Connection of the client to the socket
+    // (struct sockaddr*)&servaddr : cast the entire sockaddr_in to sockaddr*
+    //
     if (connect(sockfd, (struct sockaddr *) &servaddr, sizeof(servaddr))<0) {
         perror("Problem in connecting to the server");
         exit(3);

@@ -3,12 +3,15 @@
     "arguments": [
       "/usr/bin/gcc",
       "-c",
+      "-Wall",
+      "-std=c17",
+      "-g",
       "-o",
-      "client",
-      "echo_client.c"
+      "server2",
+      "echo_server2.c"
     ],
-    "directory": "/home/harry/Linux-Dev-Projects/example-client-server",
-    "file": "/home/harry/Linux-Dev-Projects/example-client-server/echo_client.c",
-    "output": "/home/harry/Linux-Dev-Projects/example-client-server/client"
+    "directory": "/home/harry/Client-Server-Examples/src",
+    "file": "/home/harry/Client-Server-Examples/src/echo_server2.c",
+    "output": "/home/harry/Client-Server-Examples/src/server2"
   }
 ]
