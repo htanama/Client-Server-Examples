@@ -20,4 +20,4 @@ The source code will compile using GNU GCC or clang.
 
 ![Socket Programming](https://github.com/htanama/Client-Server-Examples/blob/main/socket-programming.png)
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/cOeKykAYw-4?si=4A8BrRFv7ScRIQAP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cOeKykAYw-4?si=4A8BrRFv7ScRIQAP" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
