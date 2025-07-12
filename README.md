@@ -19,4 +19,6 @@ The source code will compile using GNU GCC or clang.
 
 https://youtu.be/cOeKykAYw-4?si=Ll8QT2jiYxDe-iq9
 
+![Socket Programming](https://github.com/htanama/Client-Server-Examples/blob/main/socket-programming.png)
+
 [![Watch the video](http://www.youtube.com/watch?v=cOeKykAYw-4&t=2)](https://www.youtube.com/embed/cOeKykAYw-4?si=oPygNy5wOfYqwkqp)
