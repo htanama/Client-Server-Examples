@@ -1,12 +1,13 @@
-// echo_server.c
-// #include <string.h>
-
-#include <stdio.h>
+// echo_server_hello.c
+#include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include <sys/types.h>
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <unistd.h>
+#include <string.h>
+
 
 #define MAXLINE 4096 /*max text line length*/
 #define SERV_PORT 3000 /*port*/
@@ -14,45 +15,56 @@
 
 int main (int argc, char **argv)
 {
-    int listenfd, connfd, n;
-    socklen_t clilen;
-    char buf[MAXLINE];
-    struct sockaddr_in cliaddr, servaddr;
+    bool isConnecting = false;
 
+    // hold file descriptor
+    int connfd;
+
+    struct sockaddr_in clientAddress, servaddr;
+
+    // socklen_t, which is an unsigned opaque integral type of length of at least 32 bits. To forestall portability problems
+    socklen_t clientLength;
+    
     //creation of the socket
-    listenfd = socket (AF_INET, SOCK_STREAM, 0);
+    int listenfd = socket(AF_INET, SOCK_STREAM, 0);
 
     //preparation of the socket address 
     servaddr.sin_family = AF_INET;
     servaddr.sin_port = htons(SERV_PORT);
     servaddr.sin_addr.s_addr = htonl(INADDR_ANY);
 
-    // _bind_result variable is created to surpress clangd warning   
-    int _bind_result = bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
+    // bind socket to address. 
+    int bind_result = bind(listenfd, (struct sockaddr *) &servaddr, sizeof(servaddr));
 
+    // listen for connections on a socket
     listen(listenfd, LISTENQ);
 
-    printf("%s\n","Server running...waiting for connections on port 3000.");
+    printf("Server running...waiting for connections on port %d.\n", SERV_PORT);
+    isConnecting = true;
 
-    for ( ; ; ) {
+    while (isConnecting) {
+        char buf[MAXLINE];
+        int n;
+       
+         clientLength = sizeof(clientAddress);
+        //accept a connection on the socket
+        connfd = accept(listenfd, (struct sockaddr *) &clientAddress, &clientLength);
         
-        clilen = sizeof(cliaddr);
-        connfd = accept(listenfd, (struct sockaddr *) &cliaddr, &clilen);
-        printf("%s\n","Received request...");
-                    
-        while ( (n = recv(connfd, buf, MAXLINE,0)) > 0)  {
-            printf("%s","String received from and resent to the client:");
-            puts(buf);
-            send(connfd, buf, n, 0);
+      
+        //receive and print messages from client
+        while ((n = recv(connfd, buf, MAXLINE, 0)) > 0) {
+            printf("Client sent: %s\n", buf);
+            char *add_msg = "...Request is completed by the server\n";
+            strcat(buf, add_msg);
+            send(connfd, buf, strlen(buf), 0);
         }
-            
+        
         if (n < 0) {
-            perror("Read error"); 
+            perror("read error");
             exit(1);
         }
-        close(connfd);
 
+        close(connfd);
     }
-    //close listening socket
-    close(listenfd); 
 }
+

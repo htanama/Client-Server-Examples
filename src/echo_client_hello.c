@@ -14,8 +14,8 @@ int close(int fd);
 
 int main(int argc, char *argv[]){
 
-    char message[32]="hello";
-    char receive_msg[32];
+    char message[100]="hello, client request";
+    char receive_msg[100];
 
     //create socket 
     int clientSocket = socket(AF_INET, SOCK_STREAM, 0);
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
     //ssize_t recv(int sockfd, void *buf, size_t len, int flags);    
     
     // display msg from server to client
-    printf("from server: %s \n", receive_msg);
+    printf("\nServer sent: %s \n", receive_msg);
     
         
     // close connection
