@@ -16,3 +16,5 @@ The binary application is located on the build folder and the source code locate
 The Makefile is just an example build script that can be use to compile the source code. 
 
 The source code will compile using GNU GCC or clang. 
+
+[here](https://www.youtube.com/watch?v=YOUR_VIDEO_ID).
