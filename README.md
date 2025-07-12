@@ -17,4 +17,6 @@ The Makefile is just an example build script that can be use to compile the sour
 
 The source code will compile using GNU GCC or clang. 
 
-[here](https://www.youtube.com/watch?v=YOUR_VIDEO_ID).
+https://youtu.be/cOeKykAYw-4?si=Ll8QT2jiYxDe-iq9
+
+[![Watch the video](http://www.youtube.com/watch?v=cOeKykAYw-4&t=2)](https://www.youtube.com/embed/cOeKykAYw-4?si=oPygNy5wOfYqwkqp)
