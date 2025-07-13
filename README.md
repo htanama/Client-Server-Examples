@@ -38,3 +38,13 @@ accept(listenfd, (struct sockaddr *) &clientAddress, &clientLength);
 `accept()` function to work properly.
 
 It's worth noting that the `accept()` function returns a new file descriptor that represents the accepted connection, and it also fills in the `sockaddr *` structure with the address of the client that connected to the server. The `clientLength` variable is used to store the length of the `sockaddr` structure that was filled in by the `accept()` function.
+
+Here is some study resources about socket programming:
+
+CS 50 Software Design and Implementation - Socket Programming 
+from Dartmouth University
+https://www.cs.dartmouth.edu/~campbell/cs50/socketprogramming.html
+
+
+The Linux socket API explained
+https://www.youtube.com/watch?v=XXfdzwEsxFk
